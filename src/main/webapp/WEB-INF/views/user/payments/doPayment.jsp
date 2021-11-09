@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Do Payment</title>
     <link rel="stylesheet" href="index.styl">
+
 </head>
 <body>
 <div class="line"></div>
@@ -21,14 +22,25 @@
         </nav>
     </header>
 
-    <h1>
-        <p><img src="avatar.jpg" width="250" height="250" align="middle">
-        <li>login: <%= request.getAttribute("login")%>
-        </li>
-        <li> email: <%= request.getAttribute("email")%>
-        </li>
-        </p>
-    </h1>
+    <h4 align="center">Your Card*</h4>
+    <form align="center" method=post>
+        <label>
+            <input type='number' name='userCardId'/>
+        </label>
+        <h4>sum*</h4>
+        <label>
+            <input type='number' name='sum'/>
+        </label>
+        <h4>positive/negative</h4>
+        <label>
+            <input type='text' name='trType'/>
+        </label>
+        </br>
+        </br>
+        <input type='submit' name='submit'/>
+    </form>
+
+
 
 
     <footer>

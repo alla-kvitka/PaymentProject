@@ -8,13 +8,13 @@ CREATE TABLE users
     user_email    varchar(128) NOT NULL UNIQUE,
     user_role     varchar(16)  NOT NULL,
     user_bill     bigint       NOT NULL NOT NULL,
-    --  user_surname varchar(16) NOT NULL,
-    --  user_name varchar(16) NOT NULL,
     PRIMARY KEY (user_id)
 );
 
 INSERT INTO users
-VALUES (1, 'akvitka', '20121997', 'invariant17@gmail.com', 'ADMIN', 61234621487232);
+VALUES (123182241, 'akvitka', '20121997', 'invariant17@gmail.com', 'ADMIN', 12731811248247);
+INSERT INTO users
+VALUES (112311244, 'test', 'test', 'test@gmail.com', 'USER', 128712741827316);
 
 
 
@@ -32,7 +32,7 @@ CREATE TABLE cards
 drop table bill;
 CREATE TABLE bill
 (
-    bill_id     bigint      NOT NULL AUTO_INCREMENT,
+    bill_id     bigint      NOT NULL,
     bill_sum    bigint      NOT NULL,
     bill_name   varchar(16) NOT NULL,
     bill_status boolean     NOT NULL,
@@ -43,9 +43,28 @@ CREATE TABLE bill
 drop table Transaction_history;
 CREATE TABLE Transaction_history
 (
-    tr_id     bigint      NOT NULL AUTO_INCREMENT,
-    tr_date   datetime,
-    tr_status varchar(16) NOT NULL,
-    card_id   bigint      NOT NULL,
+    user_id      bigint      NOT NULL,
+    tr_id        bigint      NOT NULL,
+    bill_id      bigint      NOT NULL,
+    card_id      bigint      NOT NULL,
+    tr_date      datetime,
+    payment_sum  bigint      NOT NULL,
+    payment_type varchar(16) NOT NULL,
+    tr_status    varchar(16) NOT NULL,
+    payment_id   bigint      NOT NULL,
     PRIMARY KEY (tr_id)
+);
+
+drop table payments;
+
+CREATE TABLE payments
+(
+    user_id        bigint      NOT NULL,
+    payment_id     bigint      NOT NULL UNIQUE,
+    bill_id        bigint      NOT NULL,
+    card_id        bigint      NOT NULL,
+    payment_sum    bigint      NOT NULL,
+    payment_type   varchar(16) NOT NULL,
+    payment_status int         NOT NULL,
+    PRIMARY KEY (payment_id)
 );

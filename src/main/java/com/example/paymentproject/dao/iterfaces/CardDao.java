@@ -9,7 +9,8 @@ public interface CardDao {
 
     Card insertCard(Card card) throws SQLException;
 
-    Card searchUserCards(int user_id);
+
+    Card searchCardById (int cardId);
 
     void deleteCard(Card card);
 

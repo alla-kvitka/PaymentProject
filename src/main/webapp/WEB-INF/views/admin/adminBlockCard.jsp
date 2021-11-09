@@ -1,10 +1,8 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Transactions history</title>
+    <title>Block card</title>
     <link rel="stylesheet" href="index.styl">
-
 </head>
 <body>
 <header role="banner">
@@ -12,9 +10,8 @@
         <h1><a href="homepage">Home</a></h1>
         <ul class="nav-ul">
             <dir></dir>
-            <dir><a href="user-cards">My cards</a></dir>
-            <dir><a href="transactions">Transactions</a></dir>
-            <dir><a href="payment">Payment</a></dir>
+            <dir><a href="#">Block cards</a></dir>
+            <dir><a href="#">Unblock cards</a></dir>
             <dir><a href="logout">LogOut</a></dir>
         </ul>
     </nav>
@@ -23,11 +20,9 @@
 
 
 
+
 <footer>
     <p class="copy" align="left">&copy; Alla Kvitka 2021</p>
 </footer>
-</body>
-</html>
-
 </body>
 </html>

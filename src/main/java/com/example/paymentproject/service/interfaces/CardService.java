@@ -8,7 +8,7 @@ import java.util.List;
 public interface CardService {
     Card insertCard(Card card) throws SQLException;
 
-    Card allUserCards(int user_id);
+    Card searchCardById (int cardId);
 
     void deleteCard(Card card);
 

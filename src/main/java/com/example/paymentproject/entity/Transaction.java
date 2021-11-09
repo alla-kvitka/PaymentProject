@@ -1,6 +1,7 @@
 package com.example.paymentproject.entity;
 
-public class Payment {
+public class Transaction {
+    private int trId;
     private int userId;
     private int paymentSum;
     private int paymentId;
@@ -8,40 +9,52 @@ public class Payment {
     private long billId;
     private String transactionType;
     private int status;
+    private String date;
 
-
-    public Payment() {
+    public String getDate() {
+        return date;
     }
 
-    public Payment(int paymentSum, int paymentId, int cardId, long billId,
-                   String transactionType, int status) {
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Transaction(int trId, int userId, int paymentSum,
+                       int paymentId, int cardId,
+                       long billId, String transactionType, int status) {
+        this.trId = trId;
+        this.userId = userId;
         this.paymentSum = paymentSum;
         this.paymentId = paymentId;
         this.cardId = cardId;
         this.billId = billId;
         this.transactionType = transactionType;
-        this.status=status;
-    }
-
-
-    public static Payment createPayment(Card card, String transactionType,
-                                        int sum) {
-        Payment payment = new Payment();
-        payment.setUserId(card.getUserId());
-        payment.setCardId(card.getCardId());
-        payment.setPaymentSum(sum);
-        payment.setTransactionType(transactionType);
-        payment.setBillId(card.getBillId());
-        payment.setStatus(0);
-        return payment;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Transaction() {
+
+    }
+
+    public static Transaction createTransaction(Payment payment) {
+        Transaction transaction = new Transaction();
+        transaction.setUserId(payment.getUserId());
+        transaction.setPaymentSum(payment.getPaymentSum());
+        transaction.setPaymentId(payment.getPaymentId());
+        transaction.setCardId(payment.getCardId());
+        transaction.setBillId(payment.getBillId());
+        transaction.setTransactionType(payment.getTransactionType());
+        transaction.setStatus(payment.getStatus());
+        return transaction;
+    }
+
+
+    public int getTrId() {
+        return trId;
+    }
+
+    public void setTrId(int trId) {
+        this.trId = trId;
     }
 
     public int getUserId() {
@@ -90,5 +103,13 @@ public class Payment {
 
     public void setTransactionType(String transactionType) {
         this.transactionType = transactionType;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

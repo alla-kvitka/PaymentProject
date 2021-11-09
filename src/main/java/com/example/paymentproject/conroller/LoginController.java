@@ -1,5 +1,7 @@
 package com.example.paymentproject.conroller;
 
+import com.example.paymentproject.entity.Enums.Role;
+import com.example.paymentproject.entity.User;
 import com.example.paymentproject.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -30,7 +32,11 @@ public class LoginController extends HttpServlet {
                 newSession.setMaxInactiveInterval(5 * 60);
                 Cookie message = new Cookie("currentUser", login);
                 resp.addCookie(message);
-                resp.sendRedirect(req.getContextPath() + "/homepage");
+                User user = userService.getUserInfo(login);
+                if (user.getRole().equals(Role.USER)) {
+                resp.sendRedirect(req.getContextPath() + "/homepage");}
+                else
+                    resp.sendRedirect(req.getContextPath() +"/adminHomepage");
             }
         } catch (SQLException e) {
             e.printStackTrace();

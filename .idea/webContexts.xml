@@ -5,8 +5,15 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/registration.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/card/cardInformation.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/card" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBlockCard.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminHomePage.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminUnblockCard.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/card/cardInformation.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/card/cardInformation.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/homePage.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/payments/doPayment.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/payments/submitPayment.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/payments/transactionsHistory.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
   </component>

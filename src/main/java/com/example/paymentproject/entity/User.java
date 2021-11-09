@@ -23,10 +23,13 @@ public class User {
         return user;
     }
 
-    public User(String user_login, String user_password, String user_email) {
-        this.userLogin = user_login;
-        this.userPassword = user_password;
-        this.userEmail = user_email;
+    public User(int userId, String userLogin, String userPassword, String userEmail, Role role, long userBill) {
+        this.userId = userId;
+        this.userLogin = userLogin;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.role = role;
+        this.userBill = userBill;
     }
 
     public int getUserId() {
