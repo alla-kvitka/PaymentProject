@@ -28,7 +28,7 @@ public class DBConnection {
                     "java:/comp/env");
             dataSource = (DataSource) envContext.lookup("jdbc/Payments");
         } catch (Throwable e) {
-            System.out.println("Ne bere");
+            System.out.println("error");
         }
     }
 

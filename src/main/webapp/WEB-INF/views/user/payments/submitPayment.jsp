@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Submit payment</title>
@@ -20,11 +21,39 @@
             </ul>
         </nav>
     </header>
+    <table width = "100%" border = "2">
+        <h1 align="center">Submit your payments</h1>
+        <tr>
+            <th align="center"><h1>Card ID</h1></th>
+            <th align="center"><h1>Payment Sum</h1></th>
+            <th align="center"><h1>Payment type</h1></th>
+        </tr>
+        <p></p>
+        <c:forEach items="${requestScope.payments}" var="payment">
+            <tr>
+                <td><h2>
+                    <c:out value="${payment.cardId}"/>
+                </h2>
+                </td>
+                <td><h2>
+                    <c:out value="${payment.paymentSum}"/>
+                </h2>
+                </td>
+                <td><h2>
+                    <c:out value="${payment.transactionType}"/>
+                </h2>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 
+    <form align="center" method = post>
+        <h1>  <input type = 'submit' name='submit'/></h1>
+    </form>
 
-    <footer>
+    <footerindex>
         <p class="copy" align="left">&copy; Alla Kvitka 2021</p>
-    </footer>
+    </footerindex>
 </div>
 </body>
 </html>

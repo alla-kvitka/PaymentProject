@@ -2,6 +2,7 @@ package com.example.paymentproject.service.impl;
 
 import com.example.paymentproject.dao.impl.PaymentDaoImpl;
 import com.example.paymentproject.entity.Payment;
+import com.example.paymentproject.entity.Transaction;
 import com.example.paymentproject.service.interfaces.PaymentService;
 
 import java.util.List;
@@ -32,5 +33,10 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public List<Payment> searchAllCreatedPayments(int userId) {
         return paymentDao.searchAllCreatedPayments(userId);
+    }
+
+    @Override
+    public List<Transaction> searchAllUserTransaction(int userId) {
+        return paymentDao.searchAllUserTransaction(userId);
     }
 }

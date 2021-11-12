@@ -30,11 +30,10 @@ public class UserCardsController extends HttpServlet {
         UserServiceImpl userService = new UserServiceImpl();
         CardServiceImpl cardService = new CardServiceImpl();
         User user = userService.getUserInfo(login);
-        Card card = cardService.searchCardById(user.getUserId());
-        req.setAttribute("cardId", String.valueOf(card.getCardId()));
-        req.setAttribute("cardSum", card.getCardSum());
-        req.setAttribute("cardStatus", card.isCardStatus());
-        getServletContext().getRequestDispatcher("/WEB-INF/views/user/card/cardInformation.jsp").forward(req, resp);
+        List<Card> cardsList = cardService.findAllUsersCards(user.getUserId());
+        req.setAttribute("cards",cardsList);
+        getServletContext().getRequestDispatcher("/WEB-INF/views/user/card/cardInformation.jsp")
+                .forward(req, resp);
     }
 
     @Override

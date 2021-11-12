@@ -1,6 +1,7 @@
 package com.example.paymentproject.conroller.user;
 
 import com.example.paymentproject.entity.Card;
+import com.example.paymentproject.entity.Enums.CardStatus;
 import com.example.paymentproject.entity.Payment;
 import com.example.paymentproject.service.impl.CardServiceImpl;
 import com.example.paymentproject.service.impl.PaymentServiceImpl;
@@ -26,22 +27,21 @@ public class PaymentController extends HttpServlet {
         int cardId = Integer.parseInt(req.getParameter("userCardId"));
         int paymentSum = Integer.parseInt(req.getParameter("sum"));
         String trType = req.getParameter("trType");
-        Card card = cardService.searchCardById(cardId);
+        Card card = cardService.searchCardByCardId(cardId);
         PaymentServiceImpl paymentService = new PaymentServiceImpl();
 
-        if (trType.equalsIgnoreCase("NEGATIVE")) {
-            if (card.getCardSum() <= paymentSum) {
-                req.getRequestDispatcher("/WEB-INF/views/user/payments/doPayment.jsp").forward(req, resp);
-            } else {
+        if (card.getCardStatus().equals(CardStatus.ACTIVE)) {
+            if (trType.equalsIgnoreCase("NEGATIVE")) {
+                if (card.getCardSum() <= paymentSum) {
+                    req.getRequestDispatcher("/WEB-INF/views/user/payments/doPayment.jsp").forward(req, resp);
+                } else {
+                    paymentService.insertPayment(Payment.createPayment(card, trType, paymentSum));
+                }
+            }
+            if (trType.equalsIgnoreCase("POSITIVE")) {
                 paymentService.insertPayment(Payment.createPayment(card, trType, paymentSum));
-                resp.sendRedirect(req.getContextPath() + "/paymentSubmit");
             }
         }
-        if (trType.equalsIgnoreCase("POSITIVE")) {
-            paymentService.insertPayment(Payment.createPayment(card, trType, paymentSum));
-            resp.sendRedirect(req.getContextPath() + "/paymentSubmit");
-        }
+        req.getRequestDispatcher("/WEB-INF/views/user/payments/doPayment.jsp").forward(req, resp);
     }
-
-
 }

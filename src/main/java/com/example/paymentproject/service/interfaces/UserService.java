@@ -19,4 +19,5 @@ public interface UserService {
 
     List<User> findUsers();
 
+    User getUserById(int userID);
 }

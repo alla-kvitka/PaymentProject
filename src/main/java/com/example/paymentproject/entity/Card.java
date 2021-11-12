@@ -68,4 +68,8 @@ public class Card {
     public void setCardStatus(CardStatus cardStatus) {
         this.cardStatus = cardStatus;
     }
+
+    public CardStatus getCardStatus() {
+        return cardStatus;
+    }
 }

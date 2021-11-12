@@ -9,11 +9,12 @@
 <div class="wrapper">
     <header role="banner">
         <nav role="navigation">
-            <h1><a href="homepage">Home</a></h1>
+            <h1><a href="adminHomepage">Home</a></h1>
             <ul class="nav-ul">
                 <dir></dir>
-                <dir><a href="#">Block cards</a></dir>
-                <dir><a href="#">Unblock cards</a></dir>
+                <dir><a href="block">Block cards</a></dir>
+                <dir><a href="unblock">Unblock cards</a></dir>
+                <dir><a href="allCards">All cards </a></dir>
                 <dir><a href="logout">LogOut</a></dir>
             </ul>
         </nav>

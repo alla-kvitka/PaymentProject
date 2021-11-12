@@ -13,14 +13,15 @@ public class Payment {
     public Payment() {
     }
 
-    public Payment(int paymentSum, int paymentId, int cardId, long billId,
+    public Payment(int userId, int paymentId, long billId, int cardId, int paymentSum,
                    String transactionType, int status) {
-        this.paymentSum = paymentSum;
+        this.userId = userId;
         this.paymentId = paymentId;
-        this.cardId = cardId;
         this.billId = billId;
+        this.cardId = cardId;
+        this.paymentSum = paymentSum;
         this.transactionType = transactionType;
-        this.status=status;
+        this.status = status;
     }
 
 

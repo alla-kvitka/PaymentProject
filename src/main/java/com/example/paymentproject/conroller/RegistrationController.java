@@ -4,6 +4,7 @@ import com.example.paymentproject.entity.Card;
 import com.example.paymentproject.entity.User;
 import com.example.paymentproject.service.impl.CardServiceImpl;
 import com.example.paymentproject.service.impl.UserServiceImpl;
+import com.example.paymentproject.utils.Utils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +35,7 @@ public class RegistrationController extends HttpServlet {
         CardServiceImpl cardService = new CardServiceImpl();
 
         if (login.equals("") || password.equals("") || passwordRepeat.equals("")
-                || email.equals(""))
+                || email.equals("") || !Utils.checkEmail(email))
             req.getRequestDispatcher("/WEB-INF/registration.jsp").forward(req, resp);
         else if (userService.checkExistForUser(User.createUser(login, password, email))
                 && password.equals(passwordRepeat)) {

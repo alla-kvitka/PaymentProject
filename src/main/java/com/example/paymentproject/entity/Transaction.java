@@ -21,7 +21,7 @@ public class Transaction {
 
     public Transaction(int trId, int userId, int paymentSum,
                        int paymentId, int cardId,
-                       long billId, String transactionType, int status) {
+                       long billId, String transactionType, String date, int status) {
         this.trId = trId;
         this.userId = userId;
         this.paymentSum = paymentSum;
@@ -30,24 +30,11 @@ public class Transaction {
         this.billId = billId;
         this.transactionType = transactionType;
         this.status = status;
+        this.date=date;
     }
 
     public Transaction() {
-
     }
-
-    public static Transaction createTransaction(Payment payment) {
-        Transaction transaction = new Transaction();
-        transaction.setUserId(payment.getUserId());
-        transaction.setPaymentSum(payment.getPaymentSum());
-        transaction.setPaymentId(payment.getPaymentId());
-        transaction.setCardId(payment.getCardId());
-        transaction.setBillId(payment.getBillId());
-        transaction.setTransactionType(payment.getTransactionType());
-        transaction.setStatus(payment.getStatus());
-        return transaction;
-    }
-
 
     public int getTrId() {
         return trId;

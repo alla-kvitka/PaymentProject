@@ -1,6 +1,7 @@
 package com.example.paymentproject.service.interfaces;
 
 import com.example.paymentproject.entity.Payment;
+import com.example.paymentproject.entity.Transaction;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -16,4 +17,5 @@ public interface PaymentService {
 
     List<Payment> searchAllCreatedPayments(int userId);
 
+    List<Transaction> searchAllUserTransaction(int userId);
 }

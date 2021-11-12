@@ -105,6 +105,30 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUserById(int userID) {
+        User user = null;
+        ResultSet rs = null;
+        try (Connection connection = DBConnection.getInstance().getConnection();
+             PreparedStatement ps = connection.prepareStatement("SELECT * FROM `users` WHERE `user_id`= ?")) {
+            ps.setInt(1, userID);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                user = new User();
+                user.setUserId(rs.getInt("user_id"));
+                user.setUserPassword(rs.getString("user_password"));
+                user.setUserLogin(rs.getString("user_login"));
+                user.setUserEmail(rs.getString("user_email"));
+                user.setRole(Role.valueOf(rs.getString("user_role")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getErrorCode());
+        } finally {
+            close(rs);
+        }
+        return user;
+    }
+
+    @Override
     public List<User> findAllUsers() {
         List<User> users = new ArrayList<>();
         ResultSet rs = null;
